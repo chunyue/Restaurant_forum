@@ -1,10 +1,1 @@
-<% if @restaurant.errors.any? %>
-  <h2>We have some errors here !</h2>
-  <ul>
-    <% @restaurant.errors.full_message.each do |msg| %>
-    <li> <% msg %> </li> 
-    <% end %>  
-  </ul>
-<% end %>  
-
 <%= render partial: "form" %>
