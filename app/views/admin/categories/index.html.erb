@@ -11,8 +11,12 @@
         <%= f.text_field :name, placeholder: "Category Name", calss: "form-control" %>
       </div>
       <%= f.submit class: "btn btn-primary" %>
+      <% if @category.errors.any? %>
+          <%= @category.errors.full_messages.to_sentence %>
+      <% end %>  
     <% end %>  
   </div>
+
 
   <div class="row">
     <div class="col-md-12">
