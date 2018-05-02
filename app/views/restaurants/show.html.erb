@@ -25,5 +25,16 @@
     <hr>
 
     <%= link_to 'Back to index',admin_restaurants_path %>
+
+    <%= form_for [@restaurant, @comment] do |f| %>
+      <div class="form_group">
+        <%= f.text_area :content, placehoder:"留個言吧", class: "form-control" %>
+      </div>
+      <div class="form_group">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>        
+      </div>
+    <% end %>  
+    
   </div>  <!-- class="row" -->
 </div>  <!-- cladd="container" -->
