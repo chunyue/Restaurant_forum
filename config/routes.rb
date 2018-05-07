@@ -15,4 +15,7 @@ Rails.application.routes.draw do
     root "restaurants#index"
   end
 
+  resources :users, only: [:show, :edit, :update]
+
+
 end
