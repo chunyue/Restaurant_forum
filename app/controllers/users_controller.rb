@@ -5,11 +5,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user == @user
-      @user.update(user_params)
-      flash[:notice] = "User fata was successfully updated"
-      redirect_to user_path(current_user)
-    end  
+      @user = User.find(params[:id])
+      if @user == current_user
+        @user.update(user_params)
+        flash[:notice] = "User fata was successfully updated"
+        redirect_to user_path(current_user)
+      else
+        flash[:alert] = "Wrong"  
+        redirect_to user_path(current_user)
+      end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private
