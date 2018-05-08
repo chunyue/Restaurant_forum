@@ -18,17 +18,22 @@ namespace :dev do
   end
 
   task fake_user: :environment do
+
     20.times do |i|
       User.create!(
         email: FFaker::Internet.safe_email,
-        password: FFaker::Internet.password
+        password: FFaker::Internet.password,
+        name: FFaker::Name.first_name,
+        avatar: FFaker::Avatar.image
         )
     end
-    puts "have created 20 users"  
+    puts "have created #{User.count} users"  
   end
   
   task fake_comment: :environment do
+
     Restaurant.all.each do |restaurant|
+      restaurant.comments.destroy_all
       3.times do |i|
         restaurant.comments.create!(
           content: FFaker::Lorem.sentence,
