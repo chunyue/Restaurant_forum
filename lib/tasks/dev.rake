@@ -28,7 +28,7 @@ namespace :dev do
         )
     end
     puts "have created #{User.count} users"  
-  end
+  end 
   
   task fake_comment: :environment do
 
@@ -43,8 +43,16 @@ namespace :dev do
     end 
     puts "have create fake comments"
     puts "now you have #{Comment.count} comment date"   
-  end  
-  
+  end 
+
+  task fake_image: :environment do
+    Restaurant.all.each do |r|
+      r.update(
+          image: File.open(Rails.root.join("public/seed_img/#{rand(0...2)}.jpg"))
+      )
+    end 
+    puts "have create fake images" 
+  end 
 
 
     

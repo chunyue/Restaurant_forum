@@ -5,10 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, PhotoUploader
+
+  has_many :comments
+  has_many :restaurants, through: :comments 
+
   validates_presence_of :name
   def admin?
     self.role == "admin"
   end
 
-  has_many :comments
+  
 end

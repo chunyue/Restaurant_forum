@@ -22,3 +22,15 @@
   float: none;
   display: inline-block;
 }
+
+.my-restaurant {
+  display: inline-block;
+  padding: 12px;
+  font-family: "Arial Verdana";
+  color:DodgerBlue;
+  text-align: center;
+}
+
+.my-restaurant-img > img{
+  border-radius: 10px;
+}

@@ -1,23 +1,49 @@
 <div class="container">
   <div class="row">
     <div>
-      <div class="avatar col-md-4">
-        <%= image_tag @user.avatar %>       
-      </div>
-      <div class="intro col-md-8">
-          <h2><%= @user.name %></h2>
-          <h5><%= @user.email %></h5>
-          <br>
-          <p><%= @user.intro %></p>
+        <div class="avatar col-md-4">
+          <%= image_tag @user.avatar %>       
+        </div>
 
-          <% if current_user.id == @user.id  %>
-            <%= link_to 'Edit Profile',edit_user_path, class: "btn btn-primary" %>
+        <div class="intro col-md-8">
+            <h2><%= @user.name %></h2>
+            <h5><%= @user.email %></h5>
+            <br>
+            <p><%= @user.intro %></p>
+            <!-- 更新資料按鈕 -->
+            <% if current_user.id == @user.id  %>
+              <%= link_to 'Edit Profile',edit_user_path, class: "btn btn-primary" %>
+            <% end %>
+        </div>
+              
+    </div>
+
+    <div class="clearfix"></div>
+    
+    <hr>
+
+    <div class="comment_restaurant">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+           <h3 class="panel-title"> <%= @user.comments.count %>個已評論餐廳 </h3>
+        </div>
+        <div class="panel-body">
+          <% @commented_restaurants.each do |restaurant|  %>
+            <%= link_to restaurant_path(restaurant) do %>
+            <div class="my-restaurant ">
+              <div class="my-restaurant-img">
+              <%= image_tag restaurant.image, height: '80px', class: "border-radius: 5px" %>
+              </div>
+              <div class="my-restaurant-name">
+              <h5><%= restaurant.name %></h5> 
+              </div>
+            </div>
+            <% end %>
           <% end %>
-      </div>
-      <!-- 更新資料按鈕 -->
-      
+        </div>
       </div>
 
     </div>
+  </div> 
   </div>
 </div>
