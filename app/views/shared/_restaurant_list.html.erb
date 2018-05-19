@@ -3,7 +3,7 @@
  <div class="restaurants clearfix"> 
        <% @restaurants.each do |restaurant| %>
          <div class="col-sm-6 col-md-4">
-           <div class="restaurant-item" style="width:90%;height:350px">
+           <div class="restaurant-item" style="width:90%;height:375px">
 
             <% if restaurant.image? %>
               <%= image_tag restaurant.image%> 
@@ -15,6 +15,7 @@
                <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
                <p class="label label-default"><%= restaurant.category.name %></p>
               <p><%= truncate(restaurant.description, length: 80) %></p>
+             <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %> 
              </div>
           </div>
          </div>  
