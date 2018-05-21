@@ -25,6 +25,9 @@
       
       <%= render partial: "shared/favorite", locals: {restaurant: @restaurant} %>
 
+      <%= link_to 'like', like_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
+      <%= link_to 'unlike', unlike_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
+
     </div>
 
 
