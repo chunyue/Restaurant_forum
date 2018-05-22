@@ -1,0 +1,7 @@
+<% @favorited_most_restaurants.each do |f| %>
+  <%= image_tag f.image%> 
+  <h4><%= f.name %></h4>  
+  <%= f.description %>
+  <br>
+  <hr>
+<% end %>  
