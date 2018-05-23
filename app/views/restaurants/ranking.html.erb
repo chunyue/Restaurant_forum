@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <h1>Top 10 人氣餐廳</h1> <h6>（收藏數最高）</h6>
+    <h1>Top 10 人氣餐廳 <small>（收藏數最高）</small></h1> 
     <hr>
     <div >
       
@@ -12,7 +12,7 @@
             <br>
           </div>  
           <div class="col-md-8">
-            <h4><%= f.name %></h4>  <h3>收藏數: <%= f.favorites_count %> </h3>
+            <h4><%= f.name %><small> 收藏數: <%= f.favorites_count %> </small></h4>  
             <%= simple_format f.description %>
             <%= link_to 'show', restaurant_path(f), class: "btn btn-primary" %>
             <%= render partial: "shared/favorite", locals: {restaurant: f} %>
