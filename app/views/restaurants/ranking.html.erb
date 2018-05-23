@@ -1,9 +1,26 @@
 <%= render partial: "shared/nav_tables" %>
 
-<% @favorited_most_restaurants.each do |f| %>
-  <%= image_tag f.image%> 
-  <h4><%= f.name %></h4>  
-  <%= f.description %>
-  <br>
-  <hr>
-<% end %>  
+<div class="container">
+  <div class="row">
+    <h1>Top 10 人氣餐廳</h1> <h6>（收藏數最高）</h6>
+    <hr>
+    <div >
+      
+        <% @favorited_most_restaurants.each do |f| %>
+          <div class="col-md-4 favorites_count_img">
+            <%= image_tag f.image, class: "img-responsive center_block" %> 
+            <br>
+          </div>  
+          <div class="col-md-8">
+            <h4><%= f.name %></h4>  <h3>收藏數: <%= f.favorites_count %> </h3>
+            <%= simple_format f.description %>
+            <%= link_to 'show', restaurant_path(f), class: "btn btn-primary" %>
+            <%= render partial: "shared/favorite", locals: {restaurant: f} %>
+            <hr>
+          </div>  
+          <div class="clearfix"></div>
+        <% end %> 
+
+    </div>   
+  </div> 
+</div>
