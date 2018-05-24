@@ -21,6 +21,7 @@ class Restaurant < ApplicationRecord
     self.liked_users.include?(user)
   end
 
+  default_scope { order(created_at: :desc) }
 
 
 end
