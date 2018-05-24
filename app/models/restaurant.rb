@@ -1,5 +1,4 @@
 class Restaurant < ApplicationRecord
-  default_scope { order('created_at DESC') }
 
   mount_uploader :image, PhotoUploader
   validates_presence_of :name
