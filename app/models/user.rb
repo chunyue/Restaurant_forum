@@ -18,6 +18,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
 
+  #擁有很多追蹤紀錄(followship) 擁有很多following的人
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followship
+
   validates_presence_of :name
   def admin?
     self.role == "admin"
