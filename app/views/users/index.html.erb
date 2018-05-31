@@ -1,0 +1,6 @@
+<%  @user.each do |user| %>
+  <ul>
+    <li> <%= user.name %> </li>
+    <li><%= link_to 'Follow', followships_path(user), method: :post %></li>
+  </ul>
+<% end %>  
