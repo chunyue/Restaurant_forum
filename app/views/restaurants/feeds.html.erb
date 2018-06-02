@@ -27,7 +27,7 @@
             </div>
             <div class="panel-body">
               <% @recent_comments.each do |c| %>
-                <h4><%= link_to c.restaurant.name, restaurant_path(c) %></h4>
+                <h4><%= link_to c.restaurant.name, restaurant_path(c.restaurant_id) %></h4>
                 <p><%= c.content %></p>-by <%= link_to c.user.name, user_path(c.user) %>
                 <hr>
               <% end %>
