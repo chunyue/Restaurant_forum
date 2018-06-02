@@ -3,12 +3,14 @@
   
 
 <% if @restaurant.errors.any? %>
-  <h4>We have some errors here !</h4>
-  <ul>
-    <% @restaurant.errors.full_message.each do |msg| %>
-    <li> <% msg %> </li> 
-    <% end %>  
-  </ul>
+  <div id="error_explanation">
+    <h4>We have some errors here !</h4>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li> 
+      <% end %>  
+    </ul>
+  </div>    
 <% end %> 
 
 <%= form_for [:admin, @restaurant] do |f| %>
