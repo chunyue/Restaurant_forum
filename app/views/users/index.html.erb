@@ -1,6 +1,14 @@
-<%  @user.each do |user| %>
-  <ul>
-    <li> <%= user.name %> </li>
-    <li><%= link_to 'Follow', followships_path(user), method: :post %></li>
-  </ul>
-<% end %>  
+<ul>
+  <%  @users.each do |user| %>
+    <% if user != current_user %>
+      <li> 
+        <%= user.name %>
+        <% if current_user.following?(user) %>
+          <%= link_to 'Unfollow', followship_path(user), method: :delete %> 
+        <% else %>  
+          <%= link_to 'Follow', followships_path(following_id: user), method: :post %>
+        <% end %>   
+      </li>
+    <% end %>  
+  <% end %>
+</ul>

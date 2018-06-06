@@ -27,5 +27,9 @@ class User < ApplicationRecord
     self.role == "admin"
   end
 
+  def following?(user)
+    self.followships.where(following_id: user.id).exists?
+  end
+
   
 end
