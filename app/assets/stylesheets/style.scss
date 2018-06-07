@@ -40,5 +40,23 @@
   text-align: right;
 }
 
+.follow_image{
+  text-align: center;
+}
+
+.user_following_button > a{
+  display: block;
+  text-align: center;
+  width: 30%;
+  margin: auto;
+}
+
+.follow_button > a{
+  color: #525558;
+}
+
+.follow_user_item{
+  margin-bottom: 15px;
+}
 
 
